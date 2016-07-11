@@ -1,3 +1,3 @@
 # analyseMedia
 
-Functions and Tools to query and analyse digital media.
+Functions and tools to query and analyse digital media.
