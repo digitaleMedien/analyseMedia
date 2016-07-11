@@ -1,0 +1,20 @@
+---
+title: "Article Sampling"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    toc: true
+    latex_engine: xelatex
+---
+
+\clearpage
+
+# Searchterm: `r max(sampleDat$searchTerm)`
+
+```{r , results = 'hide', echo = FALSE, cache = FALSE, eval = TRUE, message = FALSE}
+out <- NULL
+for(i in seq(1:nrow(sampleDat))){
+  out <- c(out, knit_child("articleSamplingChild.Rmd"))
+}
+```
+`r paste(knit(text = out, encoding = "UTF-8", quiet = TRUE), collapse = "\n")`
