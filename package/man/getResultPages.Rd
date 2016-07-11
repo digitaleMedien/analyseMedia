@@ -2,19 +2,19 @@
 % Please edit documentation in R/02_get.R
 \name{getResultPages}
 \alias{getResultPages}
-\title{get query results}
+\title{Get query results.}
 \usage{
 getResultPages(mediaName, searchTerm)
 }
 \arguments{
-\item{searchTerm}{searchTerm}
+\item{searchTerm}{The keyword the search engine should queried for.}
 
-\item{media}{name of digital media (spiegel, faz)}
+\item{media}{Name of digital media. Currently only Spiegel-Online, FAZ.net and Welt.de are supported.}
 }
 \value{
-The function query the search engine of the website and return all result-pages as htm on harddisk in the project-subfolder
+The function returns all result-pages of the queried website as html on harddisk in the project-subfolder.
 }
 \description{
-get query results
+Queries the search engine of a digital media site for a specific searchterm.
 }
 

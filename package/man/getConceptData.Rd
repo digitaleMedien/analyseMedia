@@ -2,22 +2,22 @@
 % Please edit documentation in R/02_get.R
 \name{getConceptData}
 \alias{getConceptData}
-\title{query DBpedia}
+\title{Query DBpedia.}
 \usage{
 getConceptData(concept = "index", subjectLabel = NULL,
   spqlEndPoint = "http://de.dbpedia.org/sparql")
 }
 \arguments{
-\item{concept}{name of the wikipedia concept where to look after corresponding subjects (string)}
+\item{concept}{name of the Wikipedia concept where to look after corresponding subjects.}
 
-\item{subjectLabel}{if specified, additionally include matching subjects (string)}
+\item{subjectLabel}{if specified, additionally include matching subjects.}
 
-\item{spqlEndPoint}{the sparcle endpoint where the query is send to (string)}
+\item{spqlEndPoint}{the sparcle endpoint where the query is send to.}
 }
 \value{
-The function returns all subjects from DBpedia which associated to the given concept as data frame
+The function returns all subjects from DBpedia which are associated to the given concept as a data frame.
 }
 \description{
-query DBpedia
+Queries the DBpedia using a SPARQL endpoint.
 }
 

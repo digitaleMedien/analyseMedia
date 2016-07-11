@@ -2,11 +2,17 @@
 % Please edit documentation in R/03_clean.R
 \name{noParagraph}
 \alias{noParagraph}
-\title{no pragraph in string}
+\title{Remove paragraphs from string.}
 \usage{
 noParagraph(stringVar)
 }
+\arguments{
+\item{stringVar}{A character vector.}
+}
+\value{
+Character vector with removed paragraphs.
+}
 \description{
-stringVar string variable
+Removes all paragraphs from a string variable. Besides apply also a left and right trim of spaces.
 }
 

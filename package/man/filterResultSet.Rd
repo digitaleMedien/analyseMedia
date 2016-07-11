@@ -2,17 +2,22 @@
 % Please edit documentation in R/03_clean.R
 \name{filterResultSet}
 \alias{filterResultSet}
-\title{remove false entries from results}
+\title{Remove false results.}
 \usage{
 filterResultSet(.df)
 }
 \arguments{
-\item{data}{frame}
+\item{.df}{The data frame with results from DBpedia, preferably the output from function \code{\link{getConceptData}}.}
 }
 \value{
-data frame with removed invalid rows
+Data frame with removed invalid rows.
 }
 \description{
-remove false entries from results
+Removes false entries from resultset.
+}
+\examples{
+\dontrun{
+filterResultSet(dat)
+}
 }
 

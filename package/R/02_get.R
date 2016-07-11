@@ -1,9 +1,10 @@
-#' query DBpedia
+#' Query DBpedia.
 #' 
-#' @param concept name of the wikipedia concept where to look after corresponding subjects (string)
-#' @param subjectLabel if specified, additionally include matching subjects (string)
-#' @param spqlEndPoint the sparcle endpoint where the query is send to (string)
-#' @return The function returns all subjects from DBpedia which associated to the given concept as data frame
+#' @description Queries the DBpedia using a SPARQL endpoint.
+#' @param concept name of the Wikipedia concept where to look after corresponding subjects.
+#' @param subjectLabel if specified, additionally include matching subjects.
+#' @param spqlEndPoint the sparcle endpoint where the query is send to.
+#' @return The function returns all subjects from DBpedia which are associated to the given concept as a data frame.
 #' @export
 getConceptData <- function(concept="index",subjectLabel=NULL,spqlEndPoint="http://de.dbpedia.org/sparql") {
   filter <- switch (
@@ -36,11 +37,12 @@ getConceptData <- function(concept="index",subjectLabel=NULL,spqlEndPoint="http:
   
 }
 
-#' get query results
+#' Get query results.
 #' 
-#' @param searchTerm searchTerm
-#' @param media name of digital media (spiegel, faz)
-#' @return The function query the search engine of the website and return all result-pages as htm on harddisk in the project-subfolder
+#' @description Queries the search engine of a digital media site for a specific searchterm.
+#' @param searchTerm The keyword the search engine should queried for.
+#' @param media Name of digital media. Currently only Spiegel-Online, FAZ.net and Welt.de are supported.
+#' @return The function returns all result-pages of the queried website as html on harddisk in the project-subfolder.
 #' @export
 getResultPages <- function(mediaName,searchTerm) {
   
@@ -66,11 +68,14 @@ getResultPages <- function(mediaName,searchTerm) {
   }
 }
 
-#' helper function for getResultPages
+#' Helper function for getResultPages.
 #' 
-#' @param searchTerm Suuchbegriff
-#' @param pageCount Number of Resultpage
-#' @return All readed html-pages are saved in a subfolder of the project
+#' @description Get the results from the search engine of a digital media site for a specific searchterm beginning from page two.
+#' @param searchTerm The keyword the search engine should queried for.
+#' @param pageCount Number of the Resultpage from the Query-Resultpage.
+#' @return The function returns all result-pages of the queried website as html on harddisk in the project-subfolder.
+#' @details This funtion is a helper funtion for function \code{\link{getResultPages}}. If the queried search engine
+#' returns more than one resultpages, this function will get all pages beginning with page two.
 #' @export
 getResultPagesHelper <- function(mediaName,searchTerm,pageCount) {
   
@@ -83,9 +88,12 @@ getResultPagesHelper <- function(mediaName,searchTerm,pageCount) {
 
 #' get html
 #' 
-#' @param url URL of the Page
-#' @param searchTerm searchTerm of url
-#' @return The function download the webpage for a given url.
+#' @description Get html-pages.
+#' @param url URL of the Webpage.
+#' @param searchTerm The keyword for which the search engine returned the URL.
+#' @return The function will download the webpage for a given url as html on harddisk in the project-subfolder.
+#' @details The name of the saved html-file will contain the name of the source media, the number of the resultpage the
+#' url was found and the searchterm used for getting the url.
 #' @export
 getPages <- function(url,mediaName,searchTerm,pageCount) {
   
@@ -99,10 +107,11 @@ getPages <- function(url,mediaName,searchTerm,pageCount) {
   write_xml(doc,paste0("./data/articlepages/",mediaName,"_","articlepage_",gsub(" ","_",searchTerm,fixed=TRUE),"_page_",pageCount,".htm"))
 }
 
-#' collect metadata from webpage
+#' Collect metadata of webpage.
 #' 
-#' @param loadedResultPage name of saved website
-#' @return The function extract article attributes from query result page or article page as data frame
+#' @description Analyse the Webpage and collect article attributes.
+#' @param loadedResultPage Name of the website-file.
+#' @return The function extract article attributes from query result page or article page as data frame.
 #' @export
 analysePage <- function(mediaName="fazBlog",loadedPage) {
   

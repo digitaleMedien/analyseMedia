@@ -41,12 +41,6 @@ sampeArticles <- function(dat,minArt=10,maxArt=30,percent=0.05) {
   dat[sample(nrow(dat), min(max(min(minArt,nrow(dat)),percent*nrow(dat)),maxArt)), ]
 }
 
-#' sanitizeLatexS
-#' 
-sanitizeLatexS <- function(str) {
-  gsub('([#$%&~_\\^\\\\{}])', '\\\\\\\\\\1', str, perl = TRUE);
-}
-
 #' begin string with letter
 #' 
 startStringWithLetter <- function(txt) {

@@ -1,16 +1,29 @@
-#' Dual plot with linechart and barplot
-#' 
-#' @param titleMain Main title of the plot
-#' @param titleSub Subtitel of the plot
-#' @param yAxisTitle Title of the y-axis
-#' @param xAxisTitle Title of the x-axis
-#' @param refText Name of the source of the plot
-#' @param dat dataframe with article data
-#' @param pdfName Name of the plot-pdf to create
-#' @param y2AxisTitle Title of the second y-axis
-#' @param selectSearchTerm Search-Term for which to create the plot
-#' @return The function query the search engine of the website and return all result-pages as htm on harddisk in the project-subfolder
-#' @return pdf-file with dual plot
+#'  Combination of linechart and barplot.
+#'  
+#' @description  Creates a plot combination of a linechart and a barplot.
+#' @param titleMain The main title (on top) of the plot.
+#' @param titleSub Sub-title (at bottom) of the plot.
+#' @param yAxisTitle A label for the y axis.
+#' @param xAxisTitle A label for the x axis.
+#' @param refText Name of the source or author of the plot.
+#' @param dat the The object with article data, preferably the output from function \code{\link{freqByTime}}.
+#' @param pdfName Character string naming a pdf-file for plot output
+#' @param y2AxisTitle A label for the second y axis.
+#' @param selectSearchTerm The search-term for which to create the plot (defining the relevent rows of dat).
+#' @examples 
+#' \dontrun{
+#' dualPlot(
+#' titleMain = "The main title",
+#' titleSub = "Subtitle",
+#' yAxisTitle = "Y-Axis",
+#' xAxisTitle = "X-Axis",
+#' refText = "Source:",
+#' dat,
+#' pdfName = "./data/plot/out.pdf",
+#' y2AxisTitle = "Y2-Axis",
+#' selectSearchTerm = "keyword")
+#' }
+#' @details This is a function requiring a special data frame with specific columns. See also the function \code{\link{freqByTime}} which creates the required data structure. 
 #' @export
 dualPlot <- function (titleMain,titleSub = "",yAxisTitle = "",xAxisTitle = "",
                       refText = "",dat,pdfName,y2AxisTitle = "",selectSearchTerm ) {

@@ -2,17 +2,22 @@
 % Please edit documentation in R/03_clean.R
 \name{cleanCharacters}
 \alias{cleanCharacters}
-\title{remove false characters}
+\title{Remove false characters.}
 \usage{
 cleanCharacters(.df)
 }
 \arguments{
-\item{data}{frame}
+\item{.df}{The data frame with results from DBpedia, preferably the output from function \code{\link{getConceptData}}.}
 }
 \value{
-data frame with cleaned results
+Data frame without metadata characters.
 }
 \description{
-remove false characters
+Removes special metadata characters from DBpedia-Results.
+}
+\examples{
+\dontrun{
+cleanCharacters(dat)
+}
 }
 

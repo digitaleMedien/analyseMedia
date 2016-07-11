@@ -2,19 +2,23 @@
 % Please edit documentation in R/03_clean.R
 \name{cleanData}
 \alias{cleanData}
-\title{clean article data}
+\title{Clean article data.}
 \usage{
 cleanData(dat, mediaTarget)
 }
 \arguments{
-\item{mediaTarget}{name of the source media}
+\item{dat}{Data frame with article data, preferably the output from function \code{\link{analysePage}}.}
 
-\item{data}{frame with article data}
+\item{mediaTarget}{Name of the media source (e.g. "spiegelOnline").}
 }
 \value{
-data frame with cleane and converted results
+The function returns a data frame with clean and correct formated results.
 }
 \description{
-clean article data
+Cleans the article dataset.
+}
+\details{
+This function removes unnecessary paragraphs and character from the article result set. 
+It also sets the right data format (e.g. date) and encoding. In addition it parse interesting data from character vectors.
 }
 

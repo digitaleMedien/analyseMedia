@@ -2,17 +2,17 @@
 % Please edit documentation in R/02_get.R
 \name{analysePage}
 \alias{analysePage}
-\title{collect metadata from webpage}
+\title{Collect metadata of webpage.}
 \usage{
 analysePage(mediaName = "fazBlog", loadedPage)
 }
 \arguments{
-\item{loadedResultPage}{name of saved website}
+\item{loadedResultPage}{Name of the website-file.}
 }
 \value{
-The function extract article attributes from query result page or article page as data frame
+The function extract article attributes from query result page or article page as data frame.
 }
 \description{
-collect metadata from webpage
+Analyse the Webpage and collect article attributes.
 }
 

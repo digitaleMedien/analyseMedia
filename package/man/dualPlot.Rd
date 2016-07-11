@@ -2,36 +2,48 @@
 % Please edit documentation in R/05_graph.R
 \name{dualPlot}
 \alias{dualPlot}
-\title{Dual plot with linechart and barplot}
+\title{Combination of linechart and barplot.}
 \usage{
 dualPlot(titleMain, titleSub = "", yAxisTitle = "", xAxisTitle = "",
   refText = "", dat, pdfName, y2AxisTitle = "", selectSearchTerm)
 }
 \arguments{
-\item{titleMain}{Main title of the plot}
+\item{titleMain}{The main title (on top) of the plot.}
 
-\item{titleSub}{Subtitel of the plot}
+\item{titleSub}{Sub-title (at bottom) of the plot.}
 
-\item{yAxisTitle}{Title of the y-axis}
+\item{yAxisTitle}{A label for the y axis.}
 
-\item{xAxisTitle}{Title of the x-axis}
+\item{xAxisTitle}{A label for the x axis.}
 
-\item{refText}{Name of the source of the plot}
+\item{refText}{Name of the source or author of the plot.}
 
-\item{dat}{dataframe with article data}
+\item{dat}{the The object with article data, preferably the output from function \code{\link{freqByTime}}.}
 
-\item{pdfName}{Name of the plot-pdf to create}
+\item{pdfName}{Character string naming a pdf-file for plot output}
 
-\item{y2AxisTitle}{Title of the second y-axis}
+\item{y2AxisTitle}{A label for the second y axis.}
 
-\item{selectSearchTerm}{Search-Term for which to create the plot}
-}
-\value{
-The function query the search engine of the website and return all result-pages as htm on harddisk in the project-subfolder
-
-pdf-file with dual plot
+\item{selectSearchTerm}{The search-term for which to create the plot (defining the relevent rows of dat).}
 }
 \description{
-Dual plot with linechart and barplot
+Creates a plot combination of a linechart and a barplot.
+}
+\details{
+This is a function requiring a special data frame with specific columns. See also the function \code{\link{freqByTime}} which creates the required data structure.
+}
+\examples{
+\dontrun{
+dualPlot(
+titleMain = "The main title",
+titleSub = "Subtitle",
+yAxisTitle = "Y-Axis",
+xAxisTitle = "X-Axis",
+refText = "Source:",
+dat,
+pdfName = "./data/plot/out.pdf",
+y2AxisTitle = "Y2-Axis",
+selectSearchTerm = "keyword")
+}
 }
 

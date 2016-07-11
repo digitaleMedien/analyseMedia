@@ -7,14 +7,18 @@
 getPages(url, mediaName, searchTerm, pageCount)
 }
 \arguments{
-\item{url}{URL of the Page}
+\item{url}{URL of the Webpage.}
 
-\item{searchTerm}{searchTerm of url}
+\item{searchTerm}{The keyword for which the search engine returned the URL.}
 }
 \value{
-The function download the webpage for a given url.
+The function will download the webpage for a given url as html on harddisk in the project-subfolder.
 }
 \description{
-get html
+Get html-pages.
+}
+\details{
+The name of the saved html-file will contain the name of the source media, the number of the resultpage the
+url was found and the searchterm used for getting the url.
 }
 

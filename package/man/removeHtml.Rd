@@ -2,11 +2,25 @@
 % Please edit documentation in R/03_clean.R
 \name{removeHtml}
 \alias{removeHtml}
-\title{remove html from content}
+\title{Remove html-code from content}
 \usage{
 removeHtml(htmlContent)
 }
+\arguments{
+\item{htmlContent}{Character vector with html-code.}
+}
+\value{
+Character vector with removed html-code.
+}
 \description{
-remove html from content
+Removes html-code from a character content.
+}
+\details{
+This function removes unnecessary html-code from a character vector.
+}
+\examples{
+\dontrun{
+removeHtml(htmlContent)
+}
 }
 

@@ -1,17 +1,27 @@
-#' remove false characters
+#' Remove false characters.
 #' 
-#' @param data frame
-#' @return data frame with cleaned results
+#' @description Removes special metadata characters from DBpedia-Results.
+#' @param .df The data frame with results from DBpedia, preferably the output from function \code{\link{getConceptData}}.
+#' @return Data frame without metadata characters.
+#' @examples 
+#' \dontrun{
+#' cleanCharacters(dat)
+#' }
 #' @export
 cleanCharacters <- function(.df) {
   .df %>% 
     mutate_each(funs(gsub("\"|@de|<|>","",.)))
 }
 
-#' remove false entries from results
+#' Remove false results.
 #' 
-#' @param data frame
-#' @return data frame with removed invalid rows
+#' @description Removes false entries from resultset.
+#' @param .df The data frame with results from DBpedia, preferably the output from function \code{\link{getConceptData}}.
+#' @return Data frame with removed invalid rows.
+#' @examples 
+#' \dontrun{
+#' filterResultSet(dat)
+#' }
 #' @export
 filterResultSet <- function(.df) {
   .df %>% 
@@ -20,15 +30,27 @@ filterResultSet <- function(.df) {
     filter(!grepl("Liste",concept))
 }
 
-#' no pragraph in string
+#' Remove paragraphs from string.
 #' 
-#' stringVar string variable
+#' @description Removes all paragraphs from a string variable. Besides apply also a left and right trim of spaces. 
+#' @param stringVar A character vector.
+#' @return Character vector with removed paragraphs.
+#' @export
 noParagraph <- function(stringVar) {
   gsub('\u00c2',"",trimws(gsub("\\s+"," ",gsub("\n|\t|\r","",stringVar)),which = "both"))
 }
 
-#' remove html from content
+#' Remove html-code from content
 #' 
+#' @description Removes html-code from a character content.
+#' @param htmlContent Character vector with html-code.
+#' @return Character vector with removed html-code.
+#' @details This function removes unnecessary html-code from a character vector.
+#' @examples 
+#' \dontrun{
+#' removeHtml(htmlContent)
+#' }
+#' @export
 removeHtml <- function(htmlContent) {
   tmp <- ""
   
@@ -40,11 +62,14 @@ removeHtml <- function(htmlContent) {
   return(tmp)
 }
 
-#' clean article data
+#' Clean article data.
 #' 
-#' @param data frame with article data
-#' @param mediaTarget  name of the source media
-#' @return data frame with cleane and converted results
+#' @description Cleans the article dataset. 
+#' @param dat Data frame with article data, preferably the output from function \code{\link{analysePage}}.
+#' @param mediaTarget  Name of the media source (e.g. "spiegelOnline").
+#' @return The function returns a data frame with clean and correct formated results.
+#' @details This function removes unnecessary paragraphs and character from the article result set. 
+#' It also sets the right data format (e.g. date) and encoding. In addition it parse interesting data from character vectors.
 #' @export
 cleanData <- function(dat,mediaTarget) {
   

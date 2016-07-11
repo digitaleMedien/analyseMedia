@@ -2,19 +2,23 @@
 % Please edit documentation in R/02_get.R
 \name{getResultPagesHelper}
 \alias{getResultPagesHelper}
-\title{helper function for getResultPages}
+\title{Helper function for getResultPages.}
 \usage{
 getResultPagesHelper(mediaName, searchTerm, pageCount)
 }
 \arguments{
-\item{searchTerm}{Suuchbegriff}
+\item{searchTerm}{The keyword the search engine should queried for.}
 
-\item{pageCount}{Number of Resultpage}
+\item{pageCount}{Number of the Resultpage from the Query-Resultpage.}
 }
 \value{
-All readed html-pages are saved in a subfolder of the project
+The function returns all result-pages of the queried website as html on harddisk in the project-subfolder.
 }
 \description{
-helper function for getResultPages
+Get the results from the search engine of a digital media site for a specific searchterm beginning from page two.
+}
+\details{
+This funtion is a helper funtion for function \code{\link{getResultPages}}. If the queried search engine
+returns more than one resultpages, this function will get all pages beginning with page two.
 }
 
