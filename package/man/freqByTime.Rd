@@ -2,26 +2,26 @@
 % Please edit documentation in R/04_aggregate.R
 \name{freqByTime}
 \alias{freqByTime}
-\title{aggregation: frequency by time}
+\title{Frequency by time}
 \usage{
 freqByTime(dat, timeDim = "\%Y", completeDim = TRUE)
 }
 \arguments{
-\item{dat}{data frame with article data}
+\item{dat}{The object with article data, preferably the output from function \code{\link{cleanData}}.}
 
-\item{timeDim}{dimension of time in POSIX standard format}
+\item{timeDim}{Dimension of time in POSIX standard format.}
+
+\item{completeDim}{If set to true, the time dimension will be coninuous (e.g. a month with no articles will appear in the frequency table).}
 }
 \value{
-The frequency of elemtens from the given time dimension (e.g. frequency by month) as data frame
-
-completeDim should the time dimension be continuous (TRUE/FALSE)
+Returns the frequency of elemtens and average number of words per article for the given time dimension (e.g. frequency by month) as data frame.
 }
 \description{
-aggregation: frequency by time
+Shows the number of articles by time (year, month, date etc.)
 }
 \examples{
-freqByTime(dat,"\%Y",TRUE): frequency by year
-freqByTime(dat,"\%Y\%m",TRUE): frequency by year and month
+freqByTime(dat,"\%Y",TRUE): Frequency by year
+freqByTime(dat,"\%Y\%m",TRUE): Frequency by year and month
 }
 \seealso{
 See also \code{\link[base]{strptime}} for possible date conversions and formats.

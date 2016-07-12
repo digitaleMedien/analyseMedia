@@ -37,7 +37,12 @@ filterResultSet <- function(.df) {
 #' @return Character vector with removed paragraphs.
 #' @export
 noParagraph <- function(stringVar) {
-  gsub('\u00c2',"",trimws(gsub("\\s+"," ",gsub("\n|\t|\r","",stringVar)),which = "both"))
+  gsub('\u00c2',"",trimws(gsub("LINEBREAK","  \n",
+                               gsub("\\s+"," ",
+                                    gsub("\n|\t","LINEBREAK",
+                                         gsub("(\n|\t|\r)([^a-zA-Z])","",stringVar)
+                                    )
+                               )),which = "both"))
 }
 
 #' Remove html-code from content
@@ -55,7 +60,7 @@ removeHtml <- function(htmlContent) {
   tmp <- ""
   
   if(!is.na(htmlContent)){
-    localDoc <- read_html(htmlContent)
+    localDoc <- read_html(htmlContent, encoding = "utf8")
     tmp <- html_text(html_nodes(localDoc, "p"))
   }
   
@@ -73,34 +78,33 @@ removeHtml <- function(htmlContent) {
 #' @export
 cleanData <- function(dat,mediaTarget) {
   
-  if (mediaTarget == "fazBlog") {
-    
-    tmp <- dat %>% 
-      mutate(articleDate = as.Date(articleDate, "%d. %B %Y")
-      )
-  } else if (mediaTarget %in% c("spiegelOnline","sueddeutsche")) {
-    
-    # set delimeter for parsing ressort
-    deliRessort <- ifelse(mediaTarget=="spiegelOnline","-","\n            \n        \n            \n")
-    deliOffset  <- ifelse(mediaTarget=="spiegelOnline",3,1)
-    
-    # setting the encoding
-    tmp <- lapply(dat, function(x) {
-      if(is.character(x)) {
-        x <- iconv(x,from="utf8",to="utf8")
-      }
-      return(x)
-    }) %>% 
-      data.frame 
-    
+  # define time-format
+  dFormat  <- ifelse(mediaTarget=="fazBlog","%d. %B %Y","%d. %B %Y")
+  # set delimeter for parsing ressort
+  deliRessort <- ifelse(mediaTarget=="spiegelOnline","-","\n            \n        \n            \n")
+  deliOffset  <- ifelse(mediaTarget=="spiegelOnline",3,1)
+  
+  # setting the encoding and dFormat
+  tmp <- lapply(dat, function(x) {
+    if(is.character(x)) {
+      x <- iconv(x,from="utf8",to="utf8")
+    }
+    return(x)
+  }) %>% 
+    data.frame %>% 
+    mutate_each(funs(as.character)) %>%
+    mutate(articleDate = as.Date(articleDate, dFormat))
+
+  if (mediaTarget %in% c("spiegelOnline","sueddeutsche")) {
     tmp <- tmp %>%
-      mutate_each(funs(as.character)) %>% 
-      mutate(articleDate = as.Date(articleDate, "%Y-%m-%d"),
-             pageRessort = noParagraph(substr(substr(pageTeaserInfo,str_locate(pageTeaserInfo,deliRessort)+2,
+      mutate(pageRessort = noParagraph(substr(substr(pageTeaserInfo,str_locate(pageTeaserInfo,deliRessort)+2,
                                          str_length(pageTeaserInfo)),1,
                                   str_locate(substr(pageTeaserInfo,str_locate(pageTeaserInfo,deliRessort)+2,
                                                     str_length(pageTeaserInfo)),deliRessort)-deliOffset))
-      ) %>% 
+      )
+  }
+    
+    tmp <- tmp %>% 
       rowwise() %>% 
       mutate(articleContent  = noParagraph(removeHtml(articleContent)),
              articleTeaser   = noParagraph(articleTeaser),
@@ -122,6 +126,5 @@ cleanData <- function(dat,mediaTarget) {
     # }) %>%
     #   data.frame %>%
     #   mutate_each(funs(as.character))
-  }
   return(tmp)
 }

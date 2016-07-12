@@ -2,17 +2,20 @@
 % Please edit documentation in R/04_aggregate.R
 \name{descrArticles}
 \alias{descrArticles}
-\title{Describe Article Data}
+\title{Describe article data.}
 \usage{
 descrArticles(.dat)
 }
 \arguments{
-\item{dat}{data frame with article data}
+\item{dat}{The object with article data, preferably the output from function \code{\link{cleanData}}.}
 }
 \value{
-data frame with additional descriptive article statistics
+The funtion returns a data frame with article descriptions like "number of words".
 }
 \description{
-Describe Article Data
+Set of article descriptions.
+}
+\details{
+The description-columns will be added to the input data frame.
 }
 

@@ -33,14 +33,14 @@ write.csv2(indexKeywords, file = "./data/indexKeywords.csv")
 # then all urls are beeing loaded
 
 # what media should by queried?
-mediaTarget <- "sueddeutsche" # fazBlog spiegelOnline sueddeutsche
+mediaTarget <- "fazBlog" # fazBlog spiegelOnline sueddeutsche
 
 # get articles matching keyword list ---------------------------------
 # keyword from list above
 keywordList <- indexKeywords$subject_label
 
 # example keyword -> overwrites list above with static value
-keywordList <- "Korruptionsindex"
+keywordList <- "Android" # "Korruptionsindex"
 
 ## query  page --
 # save resultpages from search engine

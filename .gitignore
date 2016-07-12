@@ -1,6 +1,8 @@
 *.pdf
 *.Rhistory
+*.RData
 *.html
 *.csv
 *.pdf
 .Rproj.user
+analyseMedia.R

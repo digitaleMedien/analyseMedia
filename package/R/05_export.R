@@ -76,3 +76,62 @@ dualPlot <- function (titleMain,titleSub = "",yAxisTitle = "",xAxisTitle = "",
   mtext(refText,1,line=3,adj=1.0,cex=0.95,font=3)
   dev.off()
 }
+
+#' Arrange table.
+#' 
+#' @description Selection of columns.
+#' @param dat The object with article data, preferably the output from function \code{\link{cleanData}}.
+#' @param type The type of the aggregation table.
+#' @return The function returns a data frame with a specific selection of columns.
+#' @export
+statTab <- function(.dat,type="articleStatistic"){
+  if (type == "articleStatistic") {
+    tmp <- .dat %>% select(searchTerm,
+                           articleHeadline,
+                           articleAuthor,
+                           articleDate,
+                           pageRessort,
+                           numWordsContent,
+                           numParagraph,
+                           numWordsTitle,
+                           numSerchTerm,
+                           searchTermInTitel,
+                           searchTermFirstPg,
+                           serchTermFirstSeen,
+                           sentenceLength
+    )
+  }
+  return(tmp)
+}
+
+#' Build aggregation table
+#' 
+#' @description Selection of aggrageted column informations.
+#' @param dat The object with article data, preferably the output from function \code{\link{cleanData}}.
+#' @param type The type of the aggregation table.
+#' @return The function returns a data frame with a aggregation of specific columns.
+#' @details The used aggregation functions are min,median,max,mean,sd, number and frequency.
+#' @export
+aggStatTab <- function(.dat,selectSearchTerm,type="aggregatedArticleStatistic"){
+  
+  if (type == "aggregatedArticleStatistic") {
+    tmp <- .dat %>%
+      filter(searchTerm == selectSearchTerm) %>% 
+      select(numWordsContent,numParagraph,numWordsTitle,numSerchTerm,
+             searchTermInTitel,searchTermFirstPg,serchTermFirstSeen,sentenceLength) %>% 
+      summarise_each(funs(min,median,max,mean,sd)) %>% 
+      gather("measure") %>% 
+      separate("measure",c("measure","statFunc"),"_") %>% 
+      spread("statFunc","value")
+  }
+  
+  if (type == "aggregatedRessortStatistic") {
+    tmp <- .dat %>% 
+      filter(searchTerm == selectSearchTerm) %>% 
+      group_by(pageRessort) %>% 
+      summarise(num = n()) %>% 
+      mutate(freq = num/sum(num)) %>% 
+      data.frame
+  }
+  return(tmp)
+}  

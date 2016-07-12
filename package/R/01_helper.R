@@ -1,10 +1,8 @@
-#' paste functions
-#' 
+# paste functions
 `%p%`        <- function(x, y) paste(x, y)
 `%p0%`       <- function(x, y) paste0(x, y)
 
-#' get xml node
-#' 
+# get xml node
 getNodeText <- function(doc,xpathAttr) {
   
   localAttr   <- ifelse(!identical(xpathAttr, character(0)),xpathAttr[2],"")
@@ -32,84 +30,17 @@ getNodeText <- function(doc,xpathAttr) {
   return(tmp)
 }
 
-#' sample articles
-#' 
-#' @param dat data frame with article data
-#' @return data frame with sampled articles (minimum 10 articles, maximum 30 articles, otherwise 5 percent)
-#' @export
-sampeArticles <- function(dat,minArt=10,maxArt=30,percent=0.05) {
-  dat[sample(nrow(dat), min(max(min(minArt,nrow(dat)),percent*nrow(dat)),maxArt)), ]
-}
-
-#' begin string with letter
-#' 
+# begin string with letter
 startStringWithLetter <- function(txt) {
   substring(txt,as.numeric(regexpr("[a-zA-Z]+",txt)))
 }
 
-#' build export table
-#' 
-#' @param dat data frame with article data
-#' @return data frame with selected columns
-#' @export
-statTab <- function(.dat,type="articleStatistic"){
-  if (type == "articleStatistic") {
-  tmp <- .dat %>% select(searchTerm,
-                  articleHeadline,
-                  articleAuthor,
-                  articleDate,
-                  pageRessort,
-                  numWordsContent,
-                  numParagraph,
-                  numWordsTitle,
-                  numSerchTerm,
-                  searchTermInTitel,
-                  searchTermFirstPg,
-                  serchTermFirstSeen,
-                  sentenceLength
-  )
-  }
-  return(tmp)
-}
-
-#' build aggregated export table
-#' 
-#' @param dat data frame with article data
-#' @param type export table template
-#' @return data frame with selected columns
-#' @export
-aggStatTab <- function(.dat,selectSearchTerm,type="aggregatedArticleStatistic"){
- 
-  if (type == "aggregatedArticleStatistic") {
-    tmp <- .dat %>%
-    filter(searchTerm == selectSearchTerm) %>% 
-    select(numWordsContent,numParagraph,numWordsTitle,numSerchTerm,
-           searchTermInTitel,searchTermFirstPg,serchTermFirstSeen,sentenceLength) %>% 
-    summarise_each(funs(min,median,max,mean,sd)) %>% 
-    gather("measure") %>% 
-    separate("measure",c("measure","statFunc"),"_") %>% 
-    spread("statFunc","value")
-  }
-  
-  if (type == "aggregatedRessortStatistic") {
-    tmp <- .dat %>% 
-    filter(searchTerm == selectSearchTerm) %>% 
-    group_by(pageRessort) %>% 
-    summarise(num = n()) %>% 
-    mutate(freq = num/sum(num)) %>% 
-    data.frame
-  }
-  return(tmp)
-}  
-
-#' getNodeText from config
-#' 
+# getNodeText from config
 getMediaNodeText <- function(mediaName,nodeTarget) {
   filter(mediaNodes,media==mediaName & target==nodeTarget)[c(3,4)] %>% unlist(use.names = FALSE)
 }
 
-#' make search url
-#' 
+# make search url
 makeSearchURL <- function(mediaName,searchTerm,special = FALSE,localPageCount = NULL) {
   
   tmpQry <- filter(mediaResources,media==mediaName)$urlPreStatement %p0%
@@ -135,24 +66,27 @@ makeSearchURL <- function(mediaName,searchTerm,special = FALSE,localPageCount = 
   return(tmpQry)
 }
 
-#' getNumPages
-#' 
+# getNumPages
 getNumPages <- function(localMediaName,nodeText) {
   
+  tmp <- NULL
+  
   if(localMediaName == "fazBlog") {
-    as.numeric(unlist(strsplit(
+    tmp <- as.numeric(unlist(strsplit(
       nodeText
       ," "))[2])
   }
 
   if(localMediaName == "spiegelOnline") {
-    max(as.numeric(str_extract_all(nodeText,"\\(?[0-9,.]+\\)?") %>% unlist))
+    tmp <- max(as.numeric(str_extract_all(nodeText,"\\(?[0-9,.]+\\)?") %>% unlist))
   }
   
   if(localMediaName == "sueddeutsche") {
-    ifelse(any(!is.na(nodeText)),
+    tmp <- ifelse(any(!is.na(nodeText)),
     max(as.numeric(nodeText),na.rm = T),
     1)
   }
+  
+  return(tmp)
 
 }

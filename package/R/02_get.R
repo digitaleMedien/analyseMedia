@@ -76,7 +76,6 @@ getResultPages <- function(mediaName,searchTerm) {
 #' @return The function returns all result-pages of the queried website as html on harddisk in the project-subfolder.
 #' @details This funtion is a helper funtion for function \code{\link{getResultPages}}. If the queried search engine
 #' returns more than one resultpages, this function will get all pages beginning with page two.
-#' @export
 getResultPagesHelper <- function(mediaName,searchTerm,pageCount) {
   
   qry <- makeSearchURL(mediaName,searchTerm,special = TRUE,pageCount)
@@ -142,4 +141,20 @@ analysePage <- function(mediaName="fazBlog",loadedPage) {
                       articleId = substr(loadedPage,regexpr("_page_",loadedPage)+6,regexpr(".htm",loadedPage)-1))
   }
   return(out)
+}
+
+#' Sample articles
+#' 
+#' @description Samples articles
+#' @param dat The object with article data, preferably the output from function \code{\link{cleanData}}.
+#' @return The function returns a data frame with sampled articles.
+#' @details The default sampling rules are minimum 10 articles, maximum 30 articles and otherwise 5 percent of available articles.
+#' @examples 
+#' \dontrun{
+#' sampeArticles(dat,minArt=10,maxArt=30,percent=0.05)
+#' sampeArticles(dat,minArt=10,maxArt=80,percent=0.20)
+#' }
+#' @export
+sampeArticles <- function(dat,minArt=10,maxArt=30,percent=0.05) {
+  dat[sample(nrow(dat), min(max(min(minArt,nrow(dat)),percent*nrow(dat)),maxArt)), ]
 }
