@@ -131,7 +131,7 @@ sapply(unique(freqDat$searchTerm[!is.na(freqDat$searchTerm)]), function(x) dualP
 
 # get article sampling ---------------------------------
 # minimum 10 articles, maximum 30 articles, otherwise 5 percent
-sampleDat <- sampeArticles(dat)
+sampleDat <- sampleArticles(dat)
 write.csv2(sampleDat, file = paste0("./data/sampledpages/",mediaTarget,"_articleSample.csv"),row.names = F)
 
 # create pdf-file for sampled articels

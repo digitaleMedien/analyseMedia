@@ -7,9 +7,9 @@
 statTab(.dat, type = "articleStatistic")
 }
 \arguments{
-\item{type}{The type of the aggregation table.}
+\item{.dat}{The object with article data, preferably the output from function \code{\link{cleanData}}.}
 
-\item{dat}{The object with article data, preferably the output from function \code{\link{cleanData}}.}
+\item{type}{The type of the aggregation table.}
 }
 \value{
 The function returns a data frame with a specific selection of columns.

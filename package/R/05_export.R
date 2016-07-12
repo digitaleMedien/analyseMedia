@@ -80,7 +80,7 @@ dualPlot <- function (titleMain,titleSub = "",yAxisTitle = "",xAxisTitle = "",
 #' Arrange table.
 #' 
 #' @description Selection of columns.
-#' @param dat The object with article data, preferably the output from function \code{\link{cleanData}}.
+#' @param .dat The object with article data, preferably the output from function \code{\link{cleanData}}.
 #' @param type The type of the aggregation table.
 #' @return The function returns a data frame with a specific selection of columns.
 #' @export
@@ -107,7 +107,8 @@ statTab <- function(.dat,type="articleStatistic"){
 #' Build aggregation table
 #' 
 #' @description Selection of aggrageted column informations.
-#' @param dat The object with article data, preferably the output from function \code{\link{cleanData}}.
+#' @param .dat The object with article data, preferably the output from function \code{\link{cleanData}}.
+#' @param selectSearchTerm The search-term for which to create the table (defining the relevent rows of dat).
 #' @param type The type of the aggregation table.
 #' @return The function returns a data frame with a aggregation of specific columns.
 #' @details The used aggregation functions are min,median,max,mean,sd, number and frequency.

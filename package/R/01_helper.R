@@ -90,3 +90,20 @@ getNumPages <- function(localMediaName,nodeText) {
   return(tmp)
 
 }
+
+# Helper function for getResultPages.
+# @description Get the results from the search engine of a digital media site for a specific searchterm beginning from page two.
+# @param mediaName Name of digital media. Currently only Spiegel-Online, FAZ.net and Welt.de are supported.
+# @param searchTerm The keyword the search engine should queried for.
+# @param pageCount Number of the Resultpage from the Query-Resultpage.
+# @return The function returns all result-pages of the queried website as html on harddisk in the project-subfolder.
+# @details This funtion is a helper funtion for function \code{\link{getResultPages}}. If the queried search engine
+# returns more than one resultpages, this function will get all pages beginning with page two.
+getResultPagesHelper <- function(mediaName,searchTerm,pageCount) {
+  
+  qry <- makeSearchURL(mediaName,searchTerm,special = TRUE,pageCount)
+  print("Loading:" %p% qry)
+  
+  doc <- read_html(qry)
+  write_xml(doc,paste0("./data/resultpages/",mediaName,"_","resultpage_",gsub(" ","_",searchTerm,fixed=TRUE),"_page_",pageCount,".htm"))
+}

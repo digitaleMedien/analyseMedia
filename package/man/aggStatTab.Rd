@@ -7,9 +7,11 @@
 aggStatTab(.dat, selectSearchTerm, type = "aggregatedArticleStatistic")
 }
 \arguments{
-\item{type}{The type of the aggregation table.}
+\item{.dat}{The object with article data, preferably the output from function \code{\link{cleanData}}.}
 
-\item{dat}{The object with article data, preferably the output from function \code{\link{cleanData}}.}
+\item{selectSearchTerm}{The search-term for which to create the table (defining the relevent rows of dat).}
+
+\item{type}{The type of the aggregation table.}
 }
 \value{
 The function returns a data frame with a aggregation of specific columns.

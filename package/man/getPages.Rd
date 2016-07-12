@@ -9,7 +9,11 @@ getPages(url, mediaName, searchTerm, pageCount)
 \arguments{
 \item{url}{URL of the Webpage.}
 
+\item{mediaName}{Name of digital media. Currently only Spiegel-Online, FAZ.net and Welt.de are supported.}
+
 \item{searchTerm}{The keyword for which the search engine returned the URL.}
+
+\item{pageCount}{Number of resultpage from search engine.}
 }
 \value{
 The function will download the webpage for a given url as html on harddisk in the project-subfolder.

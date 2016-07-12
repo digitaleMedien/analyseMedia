@@ -7,7 +7,7 @@
 descrArticles(.dat)
 }
 \arguments{
-\item{dat}{The object with article data, preferably the output from function \code{\link{cleanData}}.}
+\item{.dat}{The object with article data, preferably the output from function \code{\link{cleanData}}.}
 }
 \value{
 The funtion returns a data frame with article descriptions like "number of words".

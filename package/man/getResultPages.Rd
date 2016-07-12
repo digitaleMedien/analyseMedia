@@ -7,9 +7,9 @@
 getResultPages(mediaName, searchTerm)
 }
 \arguments{
-\item{searchTerm}{The keyword the search engine should queried for.}
+\item{mediaName}{Name of digital media. Currently only Spiegel-Online, FAZ.net and Welt.de are supported.}
 
-\item{media}{Name of digital media. Currently only Spiegel-Online, FAZ.net and Welt.de are supported.}
+\item{searchTerm}{The keyword the search engine should queried for.}
 }
 \value{
 The function returns all result-pages of the queried website as html on harddisk in the project-subfolder.

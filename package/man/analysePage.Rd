@@ -7,7 +7,9 @@
 analysePage(mediaName = "fazBlog", loadedPage)
 }
 \arguments{
-\item{loadedResultPage}{Name of the website-file.}
+\item{mediaName}{Name of digital media. Currently only Spiegel-Online, FAZ.net and Welt.de are supported.}
+
+\item{loadedPage}{Name of the website-file.}
 }
 \value{
 The function extract article attributes from query result page or article page as data frame.

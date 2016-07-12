@@ -1,7 +1,7 @@
 #' Describe article data.
 #' 
 #' @description Set of article descriptions.
-#' @param dat The object with article data, preferably the output from function \code{\link{cleanData}}.
+#' @param .dat The object with article data, preferably the output from function \code{\link{cleanData}}.
 #' @return The funtion returns a data frame with article descriptions like "number of words".
 #' @details The description-columns will be added to the input data frame.
 #' @export
@@ -37,8 +37,10 @@ descrArticles <- function(.dat) {
 #' @param completeDim If set to true, the time dimension will be coninuous (e.g. a month with no articles will appear in the frequency table).
 #' @return Returns the frequency of elemtens and average number of words per article for the given time dimension (e.g. frequency by month) as data frame.
 #' @examples
-#' freqByTime(dat,"%Y",TRUE): Frequency by year
-#' freqByTime(dat,"%Y%m",TRUE): Frequency by year and month
+#' \dontrun{
+#' freqByTime(dat,"%Y",TRUE)
+#' freqByTime(dat,"%Y%m",TRUE)
+#' }
 #' @seealso See also \code{\link[base]{strptime}} for possible date conversions and formats.
 #' @export
 freqByTime <- function(dat,timeDim = "%Y",completeDim = TRUE) {

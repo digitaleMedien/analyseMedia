@@ -20,8 +20,10 @@ Returns the frequency of elemtens and average number of words per article for th
 Shows the number of articles by time (year, month, date etc.)
 }
 \examples{
-freqByTime(dat,"\%Y",TRUE): Frequency by year
-freqByTime(dat,"\%Y\%m",TRUE): Frequency by year and month
+\dontrun{
+freqByTime(dat,"\%Y",TRUE)
+freqByTime(dat,"\%Y\%m",TRUE)
+}
 }
 \seealso{
 See also \code{\link[base]{strptime}} for possible date conversions and formats.
