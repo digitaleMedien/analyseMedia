@@ -21,7 +21,7 @@ getConceptData <- function(concept="index",subjectLabel=NULL,spqlEndPoint="http:
           OPTIONAL {?URL <http://dbpedia.org/ontology/wikiPageLength> 
           ?wikiPageLength}    
           OPTIONAL {?URL rdf:type ?type}
-          {?URL rdfs:label ?subject_label}
+          OPTIONAL {?URL rdfs:label ?subject_label}
           FILTER " %p0% filter %p0% ".
           OPTIONAL {?URL <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
           ?type}
