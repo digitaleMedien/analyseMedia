@@ -1,0 +1,182 @@
+* using log directory 'C:/Users/xuesheng/Synch-Folder/R-Projekte/analyseMedia/AnalyseMedia.Rcheck'
+* using R version 3.2.4 (2016-03-10)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* using session charset: ISO8859-1
+* checking for file 'AnalyseMedia/DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'AnalyseMedia' version '0.11'
+* checking package namespace information ... OK
+* checking package dependencies ... NOTE
+Depends: includes the non-default packages:
+  'SPARQL' 'dplyr' 'xml2' 'rvest' 'stringr' 'tidyr' 'rmarkdown' 'knitr'
+Adding so many packages to the search path is excessive and importing
+selectively is preferable.
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking whether package 'AnalyseMedia' can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Malformed Description field: should contain one or more complete sentences.
+Non-standard license specification:
+  closed
+Standardizable: FALSE
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... NOTE
+Packages in Depends field not imported from:
+  'SPARQL' 'dplyr' 'knitr' 'rmarkdown' 'rvest' 'stringr' 'tidyr' 'xml2'
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... NOTE
+aggStatTab: no visible global function definition for '%>%'
+aggStatTab: no visible binding for global variable 'searchTerm'
+aggStatTab: no visible global function definition for 'select'
+aggStatTab: no visible binding for global variable 'numWordsContent'
+aggStatTab: no visible binding for global variable 'numParagraph'
+aggStatTab: no visible binding for global variable 'numWordsTitle'
+aggStatTab: no visible binding for global variable 'numSerchTerm'
+aggStatTab: no visible binding for global variable 'searchTermInTitel'
+aggStatTab: no visible binding for global variable 'searchTermFirstPg'
+aggStatTab: no visible binding for global variable 'serchTermFirstSeen'
+aggStatTab: no visible binding for global variable 'sentenceLength'
+aggStatTab: no visible global function definition for 'summarise_each'
+aggStatTab: no visible global function definition for 'funs'
+aggStatTab: no visible global function definition for 'gather'
+aggStatTab: no visible global function definition for 'separate'
+aggStatTab: no visible global function definition for 'spread'
+aggStatTab: no visible global function definition for 'group_by'
+aggStatTab: no visible binding for global variable 'pageRessort'
+aggStatTab: no visible global function definition for 'summarise'
+aggStatTab: no visible global function definition for 'n'
+aggStatTab: no visible global function definition for 'mutate'
+aggStatTab: no visible binding for global variable 'num'
+analysePage: no visible global function definition for 'read_html'
+cleanCharacters: no visible global function definition for '%>%'
+cleanCharacters: no visible global function definition for
+  'mutate_each'
+cleanCharacters: no visible global function definition for 'funs'
+cleanCharacters: no visible binding for global variable '.'
+cleanData: no visible global function definition for '%>%'
+cleanData: no visible global function definition for 'mutate_each'
+cleanData: no visible global function definition for 'funs'
+cleanData: no visible global function definition for 'mutate'
+cleanData: no visible binding for global variable 'articleDate'
+cleanData: no visible binding for global variable 'pageTeaserInfo'
+cleanData: no visible global function definition for 'str_locate'
+cleanData: no visible global function definition for 'str_length'
+cleanData: no visible global function definition for 'rowwise'
+cleanData: no visible binding for global variable 'articleContent'
+cleanData: no visible binding for global variable 'articleTeaser'
+cleanData: no visible binding for global variable 'articleHeadline'
+cleanData: no visible binding for global variable 'pageDate'
+cleanData: no visible binding for global variable 'pageHeadline'
+cleanData: no visible binding for global variable 'pageTeaser'
+cleanData: no visible global function definition for 'repair_encoding'
+descrArticles: no visible global function definition for '%>%'
+descrArticles: no visible global function definition for 'mutate'
+descrArticles: no visible global function definition for 'str_count'
+descrArticles: no visible binding for global variable 'articleContent'
+descrArticles: no visible binding for global variable 'searchTerm'
+descrArticles: no visible binding for global variable 'pageHeadline'
+descrArticles: no visible global function definition for 'str_detect'
+descrArticles: no visible global function definition for 'str_locate'
+descrArticles: no visible binding for global variable 'numWordsContent'
+descrArticles: no visible binding for global variable 'sentenceCount'
+descrArticles: no visible binding for global variable 'numSerchTerm'
+descrArticles: no visible global function definition for 'str_length'
+dualPlot: no visible global function definition for '%>%'
+dualPlot: no visible binding for global variable 'searchTerm'
+dualPlot: no visible global function definition for 'right_join'
+dualPlot: no visible global function definition for 'select'
+dualPlot: no visible binding for global variable 'timeDim'
+dualPlot: no visible global function definition for 'distinct'
+dualPlot: no visible binding for global variable '.'
+dualPlot: warning in axis(1, at = seq(1:length(tmpDat$timeDim)) - 1,
+  label = tmpDat$timeDim, col = color): partielle Übereinstimmung des
+  Argumentes 'label' mit 'labels'
+dualPlot: warning in axis(1, at = (seq(1:length(tmpDat$timeDim)) - 1),
+  label = dat$timeDim, col = color): partielle Übereinstimmung des
+  Argumentes 'label' mit 'labels'
+filterResultSet: no visible global function definition for '%>%'
+filterResultSet: no visible binding for global variable 'subject_label'
+filterResultSet: no visible binding for global variable 'concept'
+freqByTime: no visible global function definition for '%>%'
+freqByTime: no visible binding for global variable 'articleDate'
+freqByTime: no visible global function definition for 'group_by'
+freqByTime: no visible binding for global variable 'searchTerm'
+freqByTime: no visible global function definition for 'summarise'
+freqByTime: no visible global function definition for 'n'
+freqByTime: no visible binding for global variable 'numWordsContent'
+freqByTime: no visible global function definition for 'select'
+freqByTime: no visible binding for global variable '.'
+freqByTime: no visible global function definition for 'mutate'
+freqByTime: no visible global function definition for 'left_join'
+freqByTime: no visible binding for global variable 'freq'
+getConceptData: no visible global function definition for 'SPARQL'
+getMediaNodeText: no visible global function definition for '%>%'
+getMediaNodeText: no visible binding for global variable 'mediaNodes'
+getMediaNodeText: no visible binding for global variable 'media'
+getMediaNodeText: no visible binding for global variable 'target'
+getNodeText: no visible global function definition for 'html_attr'
+getNodeText: no visible global function definition for 'html_nodes'
+getNodeText: no visible global function definition for 'html_text'
+getNumPages: no visible global function definition for '%>%'
+getNumPages: no visible global function definition for
+  'str_extract_all'
+getPages: no visible global function definition for 'read_html'
+getPages: no visible global function definition for 'write_xml'
+getResultPages: no visible global function definition for 'read_html'
+getResultPages: no visible global function definition for 'write_xml'
+getResultPagesHelper: no visible global function definition for
+  'read_html'
+getResultPagesHelper: no visible global function definition for
+  'write_xml'
+makeSearchURL: no visible binding for global variable 'mediaResources'
+makeSearchURL: no visible binding for global variable 'media'
+removeHtml: no visible global function definition for 'read_html'
+removeHtml: no visible global function definition for 'html_text'
+removeHtml: no visible global function definition for 'html_nodes'
+statTab: no visible global function definition for '%>%'
+statTab: no visible global function definition for 'select'
+statTab: no visible binding for global variable 'searchTerm'
+statTab: no visible binding for global variable 'articleHeadline'
+statTab: no visible binding for global variable 'articleAuthor'
+statTab: no visible binding for global variable 'articleDate'
+statTab: no visible binding for global variable 'pageRessort'
+statTab: no visible binding for global variable 'numWordsContent'
+statTab: no visible binding for global variable 'numParagraph'
+statTab: no visible binding for global variable 'numWordsTitle'
+statTab: no visible binding for global variable 'numSerchTerm'
+statTab: no visible binding for global variable 'searchTermInTitel'
+statTab: no visible binding for global variable 'searchTermFirstPg'
+statTab: no visible binding for global variable 'serchTermFirstSeen'
+statTab: no visible binding for global variable 'sentenceLength'
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ... OK
+* checking PDF version of manual ... OK
+* DONE
+Status: 4 NOTEs

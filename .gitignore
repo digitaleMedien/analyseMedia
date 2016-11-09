@@ -6,3 +6,4 @@
 *.pdf
 .Rproj.user
 analyseMedia.R
+AnalyseMedia.Rcheck/
