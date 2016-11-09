@@ -134,7 +134,7 @@ sapply(unique(freqDat$searchTerm[!is.na(freqDat$searchTerm)]), function(x) dualP
 sampleDat <- sampleArticles(dat)
 write.csv2(sampleDat, file = paste0(sysFile("data/sampledpages"),mediaTarget,"_articleSample.csv"),row.names = F)
 
-# create pdf-file for sampled articels
+# create pdf-file for sampled articels (MikTex must be installed)
 render(sysFile("resources","articleSamplingDocument.Rmd"),
        output_file = paste0(mediaTarget,"_articleSample.pdf"),
        output_dir = sysFile("data/sampledpages"),clean = T,envir = .GlobalEnv)
