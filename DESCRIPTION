@@ -10,6 +10,7 @@ Depends:
 	XML,
 	RCurl,
 	bitops,
+	DBI,
     dplyr     (>= 0.4.3)	
 Imports:
 	stringr   (>= 1.0.0),
