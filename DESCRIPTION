@@ -8,6 +8,8 @@ Depends:
     R         (>= 3.2.4),
 	SPARQL    (>= 1.16),
 	XML,
+	RCurl,
+	bitops,
     dplyr     (>= 0.4.3)	
 Imports:
 	stringr   (>= 1.0.0),
