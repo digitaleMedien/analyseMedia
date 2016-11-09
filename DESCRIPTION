@@ -7,14 +7,14 @@ Maintainer:   <martin.badicke@gmail.com>
 Depends:
     R         (>= 3.2.4),
 	SPARQL    (>= 1.16),
-    dplyr     (>= 0.4.3),
+    dplyr     (>= 0.4.3)	
+Imports:
 	stringr   (>= 1.0.0),
 	xml2      (>= 0.1.2),
 	rvest     (>= 0.3.1),
 	rmarkdown (>= 0.9.5),
 	tidyr     (>= 0.4.1),
 	knitr     (>= 1.12.3)
-Imports:
 ByteCompile:  TRUE
 Description:  AnalyseMedia
 License:      closed
