@@ -7,8 +7,7 @@ Maintainer:   <martin.badicke@gmail.com>
 Depends:
     R         (>= 3.2.4),
 	SPARQL    (>= 1.16),
-    dplyr     (>= 0.4.3),
-	selectr	
+    dplyr     (>= 0.4.3)
 Imports:
 	stringr   (>= 1.0.0),
 	xml2      (>= 0.1.2),

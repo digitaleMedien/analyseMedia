@@ -4,6 +4,8 @@
 #' @importFrom tidyr gather spread separate
 #' @importFrom rmarkdown render
 #' @importFrom knitr knit
-
 NULL 
 
+
+#' @export
+rmarkdown::render
