@@ -9,3 +9,9 @@ NULL
 
 #' @export
 rmarkdown::render
+
+#' @export
+rvest::repair_encoding
+
+#' @export
+rvest::guess_encoding
