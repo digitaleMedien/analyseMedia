@@ -115,16 +115,10 @@ cleanData <- function(dat,mediaTarget) {
              pageTeaser      = noParagraph(pageTeaser)
       )
     
-    tmp$articleContent <- repair_encoding(tmp$articleContent, from="utf8")
+    if(any(grepl("windows|utf",tolower(guess_encoding(tmp$articleContent)$encoding))==FALSE)) {
+      tmp$articleContent <- repair_encoding(tmp$articleContent, from="utf8")
+    }
+    
     tmp$articleContent <- iconv(tmp$articleContent,from="utf8",to="utf8")
-    # tmp <- lapply(tmp, function(x) {
-    #   if(is.character(x)) {
-    #     x <- repair_encoding(x, from="utf8")
-    #     x <- iconv(x,from="utf8",to="utf8")
-    #   }
-    #   return(x)
-    # }) %>%
-    #   data.frame %>%
-    #   mutate_each(funs(as.character))
   return(tmp)
 }
