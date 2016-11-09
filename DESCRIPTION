@@ -11,6 +11,7 @@ Depends:
 	RCurl,
 	bitops,
 	DBI,
+	Rcpp,
 	assertthat,
     dplyr     (>= 0.4.3)	
 Imports:
