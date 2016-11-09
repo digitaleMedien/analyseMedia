@@ -11,6 +11,7 @@ Depends:
 	RCurl,
 	bitops,
 	DBI,
+	assertthat,
     dplyr     (>= 0.4.3)	
 Imports:
 	stringr   (>= 1.0.0),
