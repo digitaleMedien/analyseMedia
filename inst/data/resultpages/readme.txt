@@ -1,0 +1,1 @@
+Folder for temporary search result pages.

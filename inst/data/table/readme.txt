@@ -1,0 +1,1 @@
+Folder for tables with article statistics.
